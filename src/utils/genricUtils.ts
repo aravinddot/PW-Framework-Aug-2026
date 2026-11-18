@@ -1,0 +1,1 @@
+// click, type, select, wait
