@@ -1,12 +1,14 @@
 import { Page, expect } from '@playwright/test';
+import { GenricUtils } from '../utils/genricUtils';
 
 
-export class CommonPage {
+export class CommonPage extends GenricUtils {
 
 
     page: Page
 
     constructor(page: Page) {
+        super(page)
         this.page = page
     }
 
@@ -18,10 +20,9 @@ export class CommonPage {
     }
 
     async navigateViaHomePage(locator: string, expectedUrl: string) {
-        await this.page.getByTestId(locator).click()
+        await this.clickAction(locator)
         await this.page.waitForURL(expectedUrl)
         await expect(this.page).toHaveURL(expectedUrl)
-        await this.page.waitForTimeout(2000)
     }
 
 
