@@ -1,0 +1,4 @@
+{
+    "products": "select * from products",
+    "joinQuery": "select * from brands inner join products on brands.brand_id = products.brand_id"
+}

@@ -1,8 +1,9 @@
 import { Page, expect } from '@playwright/test';
 import { CommonPage } from './commonPage';
+import { IGrowingBatches } from '../types/interface';
 
 
-export class GrowingBatches extends CommonPage {
+export class GrowingBatches extends CommonPage implements IGrowingBatches {
 
     constructor(page: Page) {
         super(page)
@@ -40,6 +41,7 @@ export class GrowingBatches extends CommonPage {
             const grabbedValue = await this.page.locator(`[row-index="${i}"] [col-id="6"]`).innerText()
             expect(grabbedValue).toBe(expectedText)
         }
+        return rows
     }
 
 
